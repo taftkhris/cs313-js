@@ -1,0 +1,23 @@
+{
+  "name": "cs313",
+  "version": "1.0.0",
+  "description": "313 JavaScript Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taftkhris/cs313-js.git"
+  },
+  "author": "Taft Christensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taftkhris/cs313-js/issues"
+  },
+  "homepage": "https://github.com/taftkhris/cs313-js#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
+  }
+}
