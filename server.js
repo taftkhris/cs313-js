@@ -6,7 +6,6 @@ const { Pool } = require('pg');
 
 const connectionString = process.env.DATABASE_URL || "postgres://artperson:art@localhost:5432/timsart";
 const pool = new Pool({connectionString: connectionString}); 
-// , ssl:true
 
 app.set("port", process.env.PORT || 4000)
 .use(express.static(__dirname + '/public'))
@@ -38,7 +37,6 @@ function getProducts(req, res) {
             res.status(500).json({success:false, data:error});
         }   
         else {
-            console.log("About to run for each");
             res.render('pages/home', result);
         }
         
@@ -62,9 +60,9 @@ function getProductsFromDB(callback) {
 
 function getImage(req, res) {
     console.log("Getting Image information...");
+    console.log(req.query.id);
 
     var id = req.query.id;
-    // var dbResult;
     console.log("Retrieving image with id:", id);
 
     getImageFromDB(id, function(error, result) {
@@ -74,15 +72,14 @@ function getImage(req, res) {
             res.status(500).json({success:false, data:error});
         }   
         else {
-            dbResult = result[0];
-            res.json(dbResult);
+            res.json(result[0]);
         }
         
     })
 }
 
 function getImageFromDB(id, callback) {
-    console.log("getPersonFromDB called with id:", id);
+    console.log("getImageFromDB called with id:", id);
 
     var sql = "SELECT id, title, description, dimensions, price, image FROM product WHERE id = $1::int";
 
@@ -98,7 +95,6 @@ function getImageFromDB(id, callback) {
         console.log("Result: ", result);
         console.log("Found DB result: " + JSON.stringify(result.rows));
         
-
         callback(null, result.rows);
     });
 }
