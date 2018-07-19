@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/taftkhris/cs313-js#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "pg": "^7.4.3"
   }
