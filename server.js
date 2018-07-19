@@ -60,7 +60,6 @@ function getProductsFromDB(callback) {
 
 function getImage(req, res) {
     console.log("Getting Image information...");
-    console.log(req.query.id);
 
     var id = req.query.id;
     console.log("Retrieving image with id:", id);
